@@ -12,6 +12,7 @@
 }
 
 .Box {
+  position: relative;
   margin-top: 10px;
   margin-bottom: 10px;
   border: 1px solid gray;
@@ -20,9 +21,9 @@
 }
 
 .Box > button {
-  position: relative;
-  top: 0px;
-  right: 0px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 
 button:hover {
