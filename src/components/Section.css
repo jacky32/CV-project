@@ -19,11 +19,18 @@
   padding: 8px;
 }
 
+.Box > button {
+  position: relative;
+  top: 0px;
+  right: 0px;
+}
+
 button:hover {
   opacity: 1;
 }
 
 button {
+  font-weight: 900;
   font-size: 14px;
   border: none;
   padding: 6px 9px;
