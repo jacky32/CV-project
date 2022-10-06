@@ -58,6 +58,14 @@ export default class EducationInformation extends Component {
     form.classList.toggle("Hidden");
   };
 
+  handleDelete = (index) => {
+    this.setState({
+      schools: this.state.schools.filter((school, schoolIndex) => {
+        return schoolIndex !== index;
+      }),
+    });
+  };
+
   render() {
     return (
       <div className="Section">
@@ -82,7 +90,13 @@ export default class EducationInformation extends Component {
         </form>
         <div>
           {this.state.schools.map((school, index) => {
-            return <EducationBox school={school} index={index} />;
+            return (
+              <EducationBox
+                school={school}
+                index={index}
+                handleDelete={this.handleDelete}
+              />
+            );
           })}
         </div>
       </div>

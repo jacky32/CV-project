@@ -13,6 +13,13 @@ function EducationBox(props) {
       <div>
         {school.dateFrom} - {school.dateTo}
       </div>
+      <button
+        onClick={() => {
+          props.handleDelete(props.index);
+        }}
+      >
+        Remove
+      </button>
     </div>
   );
 }

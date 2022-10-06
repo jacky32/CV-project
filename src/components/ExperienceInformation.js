@@ -62,6 +62,16 @@ export default class ExperienceInformation extends Component {
     form.classList.toggle("Hidden");
   };
 
+  handleDelete = (index) => {
+    this.setState({
+      experiences: this.state.experiences.filter(
+        (experience, experienceIndex) => {
+          return experienceIndex !== index;
+        }
+      ),
+    });
+  };
+
   render() {
     return (
       <div className="Section">
@@ -83,7 +93,13 @@ export default class ExperienceInformation extends Component {
         </form>
         <div>
           {this.state.experiences.map((experience, index) => {
-            return <ExperienceBox experience={experience} index={index} />;
+            return (
+              <ExperienceBox
+                experience={experience}
+                index={index}
+                handleDelete={this.handleDelete}
+              />
+            );
           })}
         </div>
       </div>

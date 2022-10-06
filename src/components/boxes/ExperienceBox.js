@@ -14,6 +14,13 @@ function ExperienceBox(props) {
       <div>
         {experience.dateFrom} - {experience.dateTo}
       </div>
+      <button
+        onClick={() => {
+          props.handleDelete(props.index);
+        }}
+      >
+        Remove
+      </button>
     </div>
   );
 }
