@@ -19,6 +19,30 @@
   padding: 8px;
 }
 
+button:hover {
+  opacity: 1;
+}
+
+button {
+  font-size: 14px;
+  border: none;
+  padding: 6px 9px;
+  border-radius: 4px;
+  color: white;
+  background-color: goldenrod;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+button[type="submit"] {
+  padding: 6px 12px;
+  margin-top: 8px;
+}
+
+label {
+  margin-top: 8px;
+}
+
 .SectionName {
   display: flex;
   align-items: center;
