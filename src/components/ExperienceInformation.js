@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import InputField from "./InputField";
+import ExperienceBox from "./ExperienceBox";
 import "./Section.css";
 
 export default class ExperienceInformation extends Component {
@@ -8,20 +10,89 @@ export default class ExperienceInformation extends Component {
       companyName: "",
       position: "",
       mainTasks: "",
-      dateFrom: new Date(),
-      dateTo: new Date(),
+      dateFrom: new Date().toLocaleTimeString(),
+      dateTo: new Date().toLocaleTimeString(),
+      experiences: [
+        {
+          companyName: "Name",
+          position: "position",
+          mainTasks: "tasks",
+          dateFrom: new Date(Date.now()).toLocaleDateString(),
+          dateTo: new Date(Date.now()).toLocaleDateString(),
+        },
+      ],
     };
   }
+
+  setExperience = (e) => {
+    const companyName = document.getElementById("companyName").value;
+    const position = document.getElementById("position").value;
+    const mainTasks = document.getElementById("mainTasks").value;
+    const dateFrom = document.getElementById("dateFrom").value;
+    const dateTo = document.getElementById("dateTo").value;
+    this.setState(
+      {
+        experience: {
+          companyName: companyName,
+          position: position,
+          mainTasks: mainTasks,
+          dateFrom: new Date(Date.parse(dateFrom)).toLocaleDateString(),
+          dateTo: new Date(Date.parse(dateTo)).toLocaleDateString(),
+        },
+      },
+      () => {
+        e.target.reset();
+        this.toggleExperience();
+      }
+    );
+  };
+
+  onSubmitExperience = async (e) => {
+    e.preventDefault();
+    await this.setExperience(e);
+    this.setState({
+      experiences: this.state.experiences.concat(this.state.experience),
+      experience: {
+        companyName: "",
+        position: "",
+        mainTasks: "",
+        dateFrom: new Date().toLocaleTimeString(),
+        dateTo: new Date().toLocaleTimeString(),
+      },
+    });
+  };
+
+  toggleExperience = () => {
+    const form = document.getElementById("ExperienceInformationForm");
+    form.classList.toggle("Hidden");
+  };
 
   render() {
     return (
       <div className="Section">
-        <div className="SectionName">Experience Information</div>
-        <div className="SectionItem">Company name:</div>
-        <div className="SectionItem">Position:</div>
-        <div className="SectionItem">Main Tasks:</div>
-        <div className="SectionItem">Date from:</div>
-        <div className="SectionItem">Date To:</div>
+        <div className="SectionName">
+          <div>Experience</div>
+          <button onClick={this.toggleExperience}>+</button>
+        </div>
+        <form
+          id="ExperienceInformationForm"
+          className="SectionItem Hidden"
+          onSubmit={this.onSubmitExperience}
+        >
+          <InputField inputId="companyName" tag="Company name:" type="text" />
+          <InputField inputId="position" tag="Position:" type="text" />
+          <InputField inputId="mainTasks" tag="Main tasks:" type="text" />
+          <InputField inputId="dateFrom" tag="Date from:" type="date" />
+          <InputField inputId="dateTo" tag="Date to:" type="date" />
+          <button type="submit">Submit</button>
+        </form>
+        <div>
+          <div>
+            {this.state.experiences.map((experience) => {
+              return <ExperienceBox experience={experience} />;
+            })}
+          </div>
+        </div>
       </div>
     );
   }
