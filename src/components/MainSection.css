@@ -3,4 +3,10 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-right: 10vw;
+  margin-left: 10vw;
+
+  background-color: lightyellow;
+  border: 1px solid gray;
+  border-radius: 4px;
 }
