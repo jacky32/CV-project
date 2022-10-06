@@ -1,17 +1,12 @@
 import React, { Component } from "react";
 import InputField from "./InputField";
-import ExperienceBox from "./ExperienceBox";
+import ExperienceBox from "./boxes/ExperienceBox";
 import "./Section.css";
 
 export default class ExperienceInformation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      companyName: "",
-      position: "",
-      mainTasks: "",
-      dateFrom: new Date().toLocaleTimeString(),
-      dateTo: new Date().toLocaleTimeString(),
       experiences: [
         {
           companyName: "Name",
@@ -76,7 +71,7 @@ export default class ExperienceInformation extends Component {
         </div>
         <form
           id="ExperienceInformationForm"
-          className="SectionItem Hidden"
+          className="SectionForm Hidden"
           onSubmit={this.onSubmitExperience}
         >
           <InputField inputId="companyName" tag="Company name:" type="text" />
@@ -87,11 +82,9 @@ export default class ExperienceInformation extends Component {
           <button type="submit">Submit</button>
         </form>
         <div>
-          <div>
-            {this.state.experiences.map((experience) => {
-              return <ExperienceBox experience={experience} />;
-            })}
-          </div>
+          {this.state.experiences.map((experience, index) => {
+            return <ExperienceBox experience={experience} index={index} />;
+          })}
         </div>
       </div>
     );

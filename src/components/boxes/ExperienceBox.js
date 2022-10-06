@@ -3,7 +3,7 @@ import React from "react";
 function ExperienceBox(props) {
   const experience = props.experience;
   return (
-    <div key={experience.companyName + experience.position} className="Box">
+    <div key={"experienceId" + props.index} className="Box">
       <div>
         <strong>{experience.position}</strong>
       </div>

@@ -27,7 +27,7 @@
   font-size: 1.1em;
 }
 
-.SectionItem > div {
+.SectionForm > div {
   display: flex;
   flex-direction: column;
 }
