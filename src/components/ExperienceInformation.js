@@ -2,6 +2,17 @@ import React, { Component } from "react";
 import "./Section.css";
 
 export default class ExperienceInformation extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      companyName: "",
+      position: "",
+      mainTasks: "",
+      dateFrom: new Date(),
+      dateTo: new Date(),
+    };
+  }
+
   render() {
     return (
       <div className="Section">
