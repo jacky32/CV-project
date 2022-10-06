@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Section";
+import "./Section.css";
 
 export default class ExperienceInformation extends Component {
   render() {
