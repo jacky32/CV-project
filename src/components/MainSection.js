@@ -1,5 +1,6 @@
 import React from "react";
 import EducationInformation from "./EducationInformation";
+import ExperienceInformation from "./ExperienceInformation";
 import GeneralInformation from "./GeneralInformation";
 import "./MainSection.css";
 
@@ -9,6 +10,7 @@ export default function MainSection() {
       <div>Main Section</div>
       <GeneralInformation />
       <EducationInformation />
+      <ExperienceInformation />
     </div>
   );
 }
