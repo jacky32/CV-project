@@ -1,4 +1,5 @@
 import React from "react";
+import EducationInformation from "./EducationInformation";
 import GeneralInformation from "./GeneralInformation";
 import "./MainSection.css";
 
@@ -7,7 +8,7 @@ export default function MainSection() {
     <div className="MainSection">
       <div>Main Section</div>
       <GeneralInformation />
-      <div>Section 2</div>
+      <EducationInformation />
     </div>
   );
 }
