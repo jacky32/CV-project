@@ -7,7 +7,7 @@ import "./MainSection.css";
 export default function MainSection() {
   return (
     <div className="MainSection">
-      <h2>Main Section</h2>
+      <h2>CV</h2>
       <GeneralInformation />
       <EducationInformation />
       <ExperienceInformation />
