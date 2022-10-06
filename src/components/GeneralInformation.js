@@ -31,24 +31,27 @@ export default class GeneralInformation extends Component {
   };
 
   toggleForm = () => {
-    let togglees = [
-      document.getElementById("GeneralInformationForm"),
-      document.getElementById("UserInformation"),
-      document.getElementById("UserOutputName"),
+    const toggleIds = [
+      "GeneralInformationForm",
+      "UserInformation",
+      "SectionName",
     ];
-    togglees.forEach((val) => val.classList.toggle("Hidden"));
+    toggleIds.forEach((val) => {
+      const node = document.getElementById(val);
+      node.classList.toggle("Hidden");
+    });
   };
 
   render() {
     return (
       <div className="Section">
-        <div className="SectionName">
+        <div className="SectionName Hidden" id="SectionName">
           <h2>
-            <strong id="UserOutputName" className="Hidden">
-              {this.state.name}
-            </strong>
+            <strong>{this.state.name}</strong>
           </h2>
-          <button onClick={this.toggleForm}>Edit</button>
+          <button onClick={this.toggleForm} id="UserEditButton">
+            Edit
+          </button>
         </div>
         <form
           id="GeneralInformationForm"
